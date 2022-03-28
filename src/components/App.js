@@ -27,7 +27,13 @@ const App = () => {
     // HOT SEARCH
     if (q !== '') {
       console.log('aktiviramo hot serch za reči: ', q);
-      ajax.getWeatherSearch(q);
+      ajax.getWeatherSearch(q)
+      .then(obradjeni_response => {
+        if (obradjeni_response) {
+          // sigurno uspeo response jer neusepli stize kao false
+          console.log('usepo response :)', obradjeni_response);
+        }
+      })
     }
     
   }, [q]);
