@@ -20,14 +20,17 @@ const App = () => {
     });
   };
 
+  const q = formState.search.trim(); // optimizujemo ono sto je ukucan ou polje search
+
   useEffect(() => {
     // poziva se svaki put kad se search forma promeni
     // HOT SEARCH
-    const q = formState.search;
-    console.log('aktiviramo hot serch za reči: ', q);
-    ajax.getWeatherSearch(q);
+    if (q !== '') {
+      console.log('aktiviramo hot serch za reči: ', q);
+      ajax.getWeatherSearch(q);
+    }
     
-  }, [formState])
+  }, [q]);
 
   return (
     <div>

@@ -2,11 +2,11 @@ import axios from "axios";
 
 export const ajax = {};
 
-ajax.getWeatherSearch = (q = '') => {
+ajax.getWeatherSearch = async (q = '') => {
   // q text koji prtrazujemo
   // GET METHOD (znaci nemam nikakvih json podataka)
   const url = 'https://community-open-weather-map.p.rapidapi.com/weather?units=metric&q=' + q;
-  const response = axios.get(url, {
+  const response = await axios.get(url, {
     headers: {
       // 'Content-Type': 'application/json',
       'X-RapidAPI-Host': 'community-open-weather-map.p.rapidapi.com',
