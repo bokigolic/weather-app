@@ -57,3 +57,30 @@ ajax.getWeatherSearch = async (q = '') => {
     return false;
   }
 };
+
+
+ajax.getWeatherbyCityId = async (id = '') => {
+  // q text koji prtrazujemo
+  // GET METHOD (znaci nemam nikakvih json podataka)
+  const url = 'https://community-open-weather-map.p.rapidapi.com/forecast/daily?units=metric&cnt=6&id=' + id;
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        // 'Content-Type': 'application/json',
+        'X-RapidAPI-Host': 'community-open-weather-map.p.rapidapi.com',
+        'X-RapidAPI-Key': '8bc9ab9e30mshcb25afcd6c37bf3p1231a7jsn2e229c3d0c0d'
+      }
+    });
+    console.log('response za getWeatherSearch', response);
+    if (response.data && response.data.city && response.data.city.id) {
+      console.log(response.data.city.id);
+      return response.data; // response data nam je celi podaci od prognoze za trazeni grad ID
+    } else {
+      console.log('neuspeo response 1');
+      return false;
+    }
+  } catch (err) {
+    console.log('neuspeo response 2');
+    return false;
+  }
+};
