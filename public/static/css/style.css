@@ -21,6 +21,11 @@ body {
   flex-wrap: wrap;
 }
 
+.forecast-today {
+  border: 1px solid orange;
+  padding: 10px;
+}
+
 .forecast-card {
   border: 1px solid blue;
   padding: 10px;
