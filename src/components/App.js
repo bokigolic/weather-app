@@ -6,7 +6,7 @@ const App = () => {
   const [result, setResult] = useState({});
 
   let resultReady = false;
-  if (result && result.id) {
+  if (result && result.city && result.city.id) {
     resultReady = true;
   }
 
@@ -53,12 +53,12 @@ const App = () => {
     // ako su rezultati spremni ispisujemo ih
     jsxResult = (
       <div>
-        <div>ID: {result.id}</div>
-        <div>Name: {result.name}</div>
-        <div>icon: {result.weather[0].main}</div>
-        <div>description: {result.weather[0].description}</div>
-        <div>Temperature: {result.main.temp} degree</div>
-        <div>Wind speed: {result.wind.speed}</div>
+        <div>ID: {result.city.id}</div>
+        <div>Name: {result.city.name}</div>
+        <div>icon: {result.list[0].weather[0].main}</div>
+        <div>description: {result.list[0].weather[0].description}</div>
+        <div>Temperature: {result.list[0].temp.day}</div>
+        <div>Wind speed: {result.list[0].speed}</div>
       </div>
     );
   }
