@@ -12,3 +12,16 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.forecast-card {
+  border: 1px solid blue;
+  padding: 10px;
+}

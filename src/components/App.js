@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { resultingClientExists } from 'workbox-core/_private';
 import { ajax } from '../utils/ajax-adapter';
+import ForecastCard from './ForecastCard';
 
 const App = () => {
   const [result, setResult] = useState({});
@@ -63,6 +64,15 @@ const App = () => {
     );
   }
 
+  let jsxKartice = null;
+  if (result.list && result.city) {
+    jsxKartice = result.list.map((item, index) => {
+      return (
+        <ForecastCard key={index} city={result.city} item={item} />
+      );
+    });
+  }
+
 
   return (
     <div>
@@ -75,8 +85,10 @@ const App = () => {
       />
 
       <h3>Forecast results</h3>
-      {jsxResult}
-
+      <div className="list">
+        {jsxKartice}
+      </div>
+      
     </div>
   );
 };
