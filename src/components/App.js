@@ -7,7 +7,7 @@ import PageSearchResult from './PageSearchResult';
 import PageSearch from './PageSearchResult';
 
 const App = () => {
-  const [pinned, setPinned] = useState([]); // u ovom stateu cuvamo pinovane gradove. Koristimo array u kojem samo cuvavmo ID-ove gradova.
+  const [favorites, setFavorites] = useState([]); // u ovom stateu cuvamo favorites gradove. Koristimo array u kojem samo cuvavmo ID-ove gradova.
 
   const preset = {
     search: ''
@@ -29,12 +29,12 @@ const App = () => {
   const q = formState.search.trim(); // optimizujemo ono sto je ukucan ou polje search
 
 
-  const _pinCity = (id) => {
-    if (pinned.includes(id)) { // .includes proverava da li ta vrednost vec ima u nizu
-      // vec je pinovan. necemo duplikat
+  const _addToFavorites = (id) => {
+    if (favorites.includes(id)) { // .includes proverava da li ta vrednost vec ima u nizu
+      // vec je u favorites. necemo duplikat
     } else {
-      // setPinned([...pinned, id]); // zadrzavamo sve prethodno pinovane u nizu i dodajemo novi id na kraj niza
-      setPinned([id, ...pinned]); // zadrzavamo sve prethodno pinovane u nizu i dodajemo novi id na kraj niza
+      // setFavorites([...favorites, id]); // zadrzavamo sve prethodno favoritovane u nizu i dodajemo novi id na kraj niza
+      setFavorites([id, ...favorites]); // zadrzavamo sve prethodno favoritovane u nizu i dodajemo novi id na kraj niza
     }
   };
 
@@ -43,9 +43,9 @@ const App = () => {
     <div>
 
       <header>
-        <button type="button" onClick={(e) => { _pinCity(2643743) }}>London</button>
-        <button type="button" onClick={(e) => { _pinCity(2988507) }}>Paris</button>
-        <button type="button" onClick={(e) => { _pinCity(4887398) }}>Chicago</button>
+        <button type="button" onClick={(e) => { _addToFavorites(2643743) }}>London</button>
+        <button type="button" onClick={(e) => { _addToFavorites(2988507) }}>Paris</button>
+        <button type="button" onClick={(e) => { _addToFavorites(4887398) }}>Chicago</button>
 
         <input
           type="text"
@@ -56,9 +56,9 @@ const App = () => {
         />
       </header>
 
-      <PageSearchResult q={q} _pinCity={_pinCity} />
+      <PageSearchResult q={q} _addToFavorites={_addToFavorites} />
 
-      <PageFavorites favorites={pinned} />
+      <PageFavorites favorites={favorites} />
 
     </div>
   );

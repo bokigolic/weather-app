@@ -3,7 +3,7 @@ import { ajax } from '../utils/ajax-adapter';
 import ForecastCard from './ForecastCard';
 import ForecastToday from './ForecastToday';
 
-const PinnedPlace = (props) => {
+const City = (props) => {
   const id = props.id;
   const [result, setResult] = useState({}); // u ovom stqteu cuvamo prignozu sa interneta za sada
 
@@ -52,7 +52,7 @@ const PinnedPlace = (props) => {
 
 
   return (
-    <div className="pinned-place">PINNED PLACE ID: {id}
+    <div className="favorite-place">FAVORITE PLACE ID: {id}
 
       <h3>Today</h3>
       {jsxToday}
@@ -66,4 +66,4 @@ const PinnedPlace = (props) => {
   );
 };
 
-export default PinnedPlace;
+export default City;
