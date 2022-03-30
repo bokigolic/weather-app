@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
-import { ajax } from '../utils/ajax-adapter';
-import ForecastCard from './ForecastCard';
-import ForecastToday from './ForecastToday';
 import PageFavorites from './PageFavorites';
+import PageFavoritesSlider from './PageFavoritesSlider';
 import PageSearchResult from './PageSearchResult';
-import PageSearch from './PageSearchResult';
+
 
 const App = () => {
   const [favorites, setFavorites] = useState([]); // u ovom stateu cuvamo favorites gradove. Koristimo array u kojem samo cuvavmo ID-ove gradova.
@@ -56,7 +54,10 @@ const App = () => {
         />
       </header>
 
+
       <PageSearchResult q={q} _addToFavorites={_addToFavorites} />
+
+      <PageFavoritesSlider favorites={favorites} />
 
       <PageFavorites favorites={favorites} />
 

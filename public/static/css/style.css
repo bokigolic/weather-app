@@ -48,3 +48,45 @@ header {
   padding: 10px;
   margin: 10px;
 }
+
+
+.slide-show {
+
+}
+
+.slide-show .visible-frame {
+  position: relative;
+  border: 2px solid black;
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slide-show .slides {
+  position: relative;
+  /*
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  */
+}
+
+.slide-show .slides .slide {
+  /* min-width: 600px; */
+  height: 400px;
+
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0px;
+  overflow: hidden;
+}
+.slide-show .slides .slide.visible {
+  width: 600px;
+}
+.slide-show .slides .slide.post-visible {
+  width: 0px;
+  right: 600px;
+}
