@@ -6,18 +6,35 @@ import City from "./City";
 const PageFavoritesSlider = (props) => {
 
   const favorites = props.favorites;
-
+  
   const [visibleSlide, setVisibleSlide] = useState(0);
-
+  
   const _nextSlide = () => {
-    const max = favorites.length - 1;
-    if (visibleSlide === max) {
+    console.log('next');
+    const maxIndex = favorites.length - 1;
+
+    console.log(visibleSlide, maxIndex);
+    if (visibleSlide === maxIndex) {
+      console.log('test ISTO kao max')
       setVisibleSlide(0); // ponovo pocinje od prvog
     } else {
-      setVisibleSlide(visibleSlide + 1)
+      console.log('razlicito');
+      setVisibleSlide(visibleSlide + 1);
     }
   };
+  
 
+  useEffect(() => {
+    
+    const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
+      // ovo je funkcija koju izvrsavamo na svaki interval
+      _nextSlide();
+    }, 2000);
+  
+    // You need to clear your interval,
+    return () => clearInterval(intervalId); // This is important
+   
+  }, [favorites, visibleSlide]);
 
 
   let jsxSlides = favorites.map((id, index) => { // svaki item u favorites nizu je u stvari id pa ga odmah nazivamo id
