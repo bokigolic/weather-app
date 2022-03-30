@@ -30,3 +30,16 @@ body {
   border: 1px solid blue;
   padding: 10px;
 }
+
+.search-result {
+  border: 2px solid tomato;
+  background-color: rgba(248, 112, 88, 0.3);
+  padding: 10px;
+  margin: 10px;
+}
+
+.pinned-place {
+  border: 2px solid gray;
+  padding: 10px;
+  margin: 10px;
+}

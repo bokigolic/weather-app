@@ -50,7 +50,8 @@ const App = () => {
     if (pinned.includes(id)) { // .includes proverava da li ta vrednost vec ima u nizu
       // vec je pinovan. necemo duplikat
     } else {
-      setPinned([...pinned, id]); // zadrzavamo sve prethodno pinovane u nizu i dodajemo novi id na kraj niza
+      // setPinned([...pinned, id]); // zadrzavamo sve prethodno pinovane u nizu i dodajemo novi id na kraj niza
+      setPinned([id, ...pinned]); // zadrzavamo sve prethodno pinovane u nizu i dodajemo novi id na kraj niza
     }
   };
 
@@ -92,6 +93,11 @@ const App = () => {
 
   return (
     <div>
+
+      <button type="button" onClick={(e) => { _pinCity(2643743) }}>London</button>
+      <button type="button" onClick={(e) => { _pinCity(2988507) }}>Paris</button>
+      <button type="button" onClick={(e) => { _pinCity(4887398) }}>Chicago</button>
+
       <input
         type="text"
         placeholder="Search"
@@ -102,12 +108,14 @@ const App = () => {
 
       {jsxZeroResult}
 
-      <h3>Today</h3>
-      {jsxToday}
+      <div className="search-result">
+        <h3>Today</h3>
+        {jsxToday}
 
-      <h3>5-Day forecast</h3>
-      <div className="list">
-        {jsxKartice}
+        <h3>5-Day forecast</h3>
+        <div className="list">
+          {jsxKartice}
+        </div>
       </div>
 
       <h2>Pinned places</h2>
