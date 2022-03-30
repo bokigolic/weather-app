@@ -46,7 +46,7 @@ header {
 .favorite-place {
   border: 2px solid gray;
   padding: 10px;
-  margin: 10px;
+  margin: 0px;
 }
 
 
@@ -57,8 +57,8 @@ header {
 .slide-show .visible-frame {
   position: relative;
   border: 2px solid black;
-  width: 600px;
-  height: 400px;
+  width: 800px;
+  height: 600px;
   overflow: hidden;
 }
 
@@ -75,18 +75,21 @@ header {
 
 .slide-show .slides .slide {
   /* min-width: 600px; */
-  height: 400px;
+  height: 600px;
 
   position: absolute;
   top: 0px;
   right: 0px;
   width: 0px;
   overflow: hidden;
+
+  background: linear-gradient(90deg, rgba(2,0,36,0) 0%, rgba(9,9,121,0) 92%, rgba(0,212,255,0.29735644257703087) 100%);
+
 }
 .slide-show .slides .slide.visible {
-  width: 600px;
+  width: 800px;
 }
 .slide-show .slides .slide.post-visible {
   width: 0px;
-  right: 600px;
+  right: 800px;
 }
