@@ -14,7 +14,7 @@ const PageFavoritesSlider = (props) => {
     const maxIndex = favorites.length - 1;
 
     console.log(visibleSlide, maxIndex);
-    if (visibleSlide === maxIndex) {
+    if (visibleSlide >= maxIndex) {
       console.log('test ISTO kao max')
       setVisibleSlide(0); // ponovo pocinje od prvog
     } else {
