@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { actionRouteSet } from '../redux/actions';
 import { ajax } from '../utils/ajax-adapter';
 import ForecastCard from './ForecastCard';
 import ForecastToday from './ForecastToday';
@@ -6,6 +8,7 @@ import ForecastToday from './ForecastToday';
 
 const PageSearchResult = (props) => {
   const q = props.q;
+  // const dispatch = useDispatch();
   const [result, setResult] = useState({}); // u ovom stateu cuvamo prignozu sa interneta za sada
 
   useEffect(() => {
@@ -59,6 +62,8 @@ const PageSearchResult = (props) => {
 
   return (
     <div className="page-search">
+
+      <h2>Search results</h2>
 
       {jsxZeroResult}
 
