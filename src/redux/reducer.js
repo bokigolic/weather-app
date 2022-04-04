@@ -1,4 +1,5 @@
-import { FAVORITE_ADD, ROUTE_SET } from "./actions";
+import { FlareSharp } from "@mui/icons-material";
+import { FAVORITE_ADD, FAVORITE_REMOVE, ROUTE_SET } from "./actions";
 
 const initialState = {
   route: 'HOME',
@@ -25,6 +26,19 @@ const rootReducer = (state = initialState, action) => {
           favorites: [...state.favorites, city]
         };
       }
+
+    case FAVORITE_REMOVE:
+      city = action.payload; // city id
+      const favoritesNakonBrisanja = state.favorites.filter((id)=>{
+        if (id === city) {
+          return false; // on ne ulazi u statv novog arraya
+        }
+        return true; // svi ostali ostaju
+      });
+      return {
+        ...state,
+        favorites: favoritesNakonBrisanja
+      };
 
     case 'NEKI_ACTION ':
 

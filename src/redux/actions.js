@@ -22,3 +22,10 @@ export const actionAddToFavorites = (city) => {
     payload: city,
   };
 };
+
+export const actionRemoveFromFavorites = (city) => {
+  return {
+    type: FAVORITE_REMOVE,
+    payload: city,
+  };
+};

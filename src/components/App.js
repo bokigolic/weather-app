@@ -1,16 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { actionAddToFavorites, actionRouteSet } from '../redux/actions';
-import PageFavorites from './PageFavorites';
-import PageFavoritesSlider from './PageFavoritesSlider';
 import PageRouter from './PageRouter';
-import PageSearchResult from './PageSearchResult';
 
 
 const App = () => {
   const dispatch = useDispatch();
-
-  // const [favorites, setFavorites] = useState([]); // u ovom stateu cuvamo favorites gradove. Koristimo array u kojem samo cuvavmo ID-ove gradova.
 
   const preset = {
     search: ''
@@ -41,14 +36,6 @@ const App = () => {
 
 
   const _addToFavorites = (id) => {
-    /*
-    if (favorites.includes(id)) { // .includes proverava da li ta vrednost vec ima u nizu
-      // vec je u favorites. necemo duplikat
-    } else {
-      // setFavorites([...favorites, id]); // zadrzavamo sve prethodno favoritovane u nizu i dodajemo novi id na kraj niza
-      setFavorites([id, ...favorites]); // zadrzavamo sve prethodno favoritovane u nizu i dodajemo novi id na kraj niza
-    }
-    */
     dispatch(actionAddToFavorites(id));
   };
 
