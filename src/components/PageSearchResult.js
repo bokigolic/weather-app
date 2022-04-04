@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { actionRouteSet } from '../redux/actions';
+import { actionAddToFavorites, actionRouteSet } from '../redux/actions';
 import { ajax } from '../utils/ajax-adapter';
 import ForecastCard from './ForecastCard';
 import ForecastToday from './ForecastToday';
 
 
 const PageSearchResult = (props) => {
+  const dispatch = useDispatch();
+
   const q = props.q;
   // const dispatch = useDispatch();
   const [result, setResult] = useState({}); // u ovom stateu cuvamo prignozu sa interneta za sada
@@ -28,7 +30,10 @@ const PageSearchResult = (props) => {
 
   }, [q]);
 
-  const _addToFavorites = props._addToFavorites;
+  // const _addToFavorites = props._addToFavorites;
+  const _addToFavorites = (id) => {
+    dispatch(actionAddToFavorites(id));
+  };
 
 
   let jsxZeroResult = null;

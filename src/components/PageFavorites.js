@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import City from "./City";
 
 const PageFavorites = (props) => {
 
-  const favorites = props.favorites;
+  // const favorites = props.favorites;
+  const favorites = useSelector(state => state.favorites);
 
   let jsxFavorites = favorites.map((id) => { // svaki item u favorites nizu je u stvari id pa ga odmah nazivamo id
     return (

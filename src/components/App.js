@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { actionRouteSet } from '../redux/actions';
+import { actionAddToFavorites, actionRouteSet } from '../redux/actions';
 import PageFavorites from './PageFavorites';
 import PageFavoritesSlider from './PageFavoritesSlider';
 import PageRouter from './PageRouter';
@@ -10,7 +10,7 @@ import PageSearchResult from './PageSearchResult';
 const App = () => {
   const dispatch = useDispatch();
 
-  const [favorites, setFavorites] = useState([]); // u ovom stateu cuvamo favorites gradove. Koristimo array u kojem samo cuvavmo ID-ove gradova.
+  // const [favorites, setFavorites] = useState([]); // u ovom stateu cuvamo favorites gradove. Koristimo array u kojem samo cuvavmo ID-ove gradova.
 
   const preset = {
     search: ''
@@ -39,14 +39,19 @@ const App = () => {
   }, [q]);
 
 
+
   const _addToFavorites = (id) => {
+    /*
     if (favorites.includes(id)) { // .includes proverava da li ta vrednost vec ima u nizu
       // vec je u favorites. necemo duplikat
     } else {
       // setFavorites([...favorites, id]); // zadrzavamo sve prethodno favoritovane u nizu i dodajemo novi id na kraj niza
       setFavorites([id, ...favorites]); // zadrzavamo sve prethodno favoritovane u nizu i dodajemo novi id na kraj niza
     }
+    */
+    dispatch(actionAddToFavorites(id));
   };
+
 
   const handleClikckHome = (e) => {
     dispatch(actionRouteSet('HOME'));
@@ -81,7 +86,7 @@ const App = () => {
         <button type="button" onClick={handleClikckSearch}>SEARCH</button>
       </header>
 
-      <PageRouter favorites={favorites} q={q} _addToFavorites={_addToFavorites} />
+      <PageRouter q={q} />
 
     </div>
   );

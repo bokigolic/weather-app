@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import City from "./City";
 
 // varijanta strane favorites sa sliderom (podrazumeva sav mehanizam za slider)
 
 const PageFavoritesSlider = (props) => {
 
-  const favorites = props.favorites;
+  // const favorites = props.favorites;
+  const favorites = useSelector(reduxState => reduxState.favorites); // krace je da nsapisem ostate ali radi razumevannja smo stavi reduxState
   
   const [visibleSlide, setVisibleSlide] = useState(0);
   
