@@ -1,11 +1,35 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { actionAddToFavorites, actionRouteSet } from '../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionAddToFavorites, actionRouteSet, FAVORTE_INITIAL_LOAD } from '../redux/actions';
+import { readStoredFavorites, storeFaveorites } from '../utils/favorites-storage-utils';
 import PageRouter from './PageRouter';
 
 
 const App = () => {
   const dispatch = useDispatch();
+  const favorites = useSelector(state => state.favorites);
+  const initialized = useSelector(state => state.initialized);
+
+  useEffect(() => {
+    // INIT
+    // inicijalno citamo prethodno zapizane favorites na hard disku
+    const storedFavorites = readStoredFavorites();
+    console.log('storedFavorites', storedFavorites);
+    dispatch({
+      type: FAVORTE_INITIAL_LOAD,
+      payload: storedFavorites
+    })
+  }, []);
+
+  useEffect(()=>{
+    if (initialized) {
+      // ovo radimo samo ako je aplikacija vec inicijalizovan u protivnom bi se desilo da obrisemo favorites pre nego sto ih procitamo
+      storeFaveorites(favorites); // cuva na jard disku favorites nakon svake promene
+    }
+  }, [favorites, initialized]);
+
+
+
 
   const preset = {
     search: ''

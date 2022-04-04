@@ -1,8 +1,10 @@
 import { FlareSharp } from "@mui/icons-material";
-import { FAVORITE_ADD, FAVORITE_REMOVE, ROUTE_SET } from "./actions";
+import { FAVORITE_ADD, FAVORITE_REMOVE, FAVORTE_INITIAL_LOAD, ROUTE_SET } from "./actions";
 
 const initialState = {
+  initialized: false,
   route: 'HOME',
+  freshness: 0, // kao routeFreshness
   favorites: []
 };
 
@@ -39,6 +41,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         favorites: favoritesNakonBrisanja
       };
+
+    case FAVORTE_INITIAL_LOAD:
+      return {
+        ...state,
+        favorites: action.payload,
+        initialized: true
+    }
 
     case 'NEKI_ACTION ':
 
