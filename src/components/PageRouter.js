@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import PageFavorites from "./PageFavorites";
 import PageFavoritesSlider from "./PageFavoritesSlider";
 import PageSearchResult from "./PageSearchResult";
 
@@ -10,9 +11,13 @@ const PageRouter = (props) => {
     jsxRoute = (
       <PageFavoritesSlider favorites={props.favorites} />
     );
+  } else if (route === 'FAVORITES') {
+    jsxRoute = (
+      <PageFavorites favorites={props.favorites} />
+    );
   } else if (route === 'SEARCH') {
     jsxRoute = (
-      <PageSearchResult q={props.q} />
+      <PageSearchResult q={props.q} _addToFavorites={props._addToFavorites} />
     );
   } else {
     jsxRoute = (

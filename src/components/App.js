@@ -52,6 +52,10 @@ const App = () => {
     dispatch(actionRouteSet('HOME'));
   };
 
+  const handleClikckFavorites = (e) => {
+    dispatch(actionRouteSet('FAVORITES'));
+  };
+
   const handleClikckSearch = (e) => {
     dispatch(actionRouteSet('SEARCH'));
   };
@@ -61,6 +65,7 @@ const App = () => {
 
       <header>
         <button type="button" onClick={handleClikckHome}>HOME</button>
+        <button type="button" onClick={handleClikckFavorites}>FAVORITES</button>
         <button type="button" onClick={(e) => { _addToFavorites(2643743) }}>London</button>
         <button type="button" onClick={(e) => { _addToFavorites(2988507) }}>Paris</button>
         <button type="button" onClick={(e) => { _addToFavorites(4887398) }}>Chicago</button>
@@ -76,7 +81,7 @@ const App = () => {
         <button type="button" onClick={handleClikckSearch}>SEARCH</button>
       </header>
 
-      <PageRouter favorites={favorites} q={q} />
+      <PageRouter favorites={favorites} q={q} _addToFavorites={_addToFavorites} />
 
     </div>
   );
