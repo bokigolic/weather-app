@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionAddToFavorites, actionRouteSet, FAVORTE_INITIAL_LOAD } from '../redux/actions';
 import { readStoredFavorites, storeFaveorites } from '../utils/favorites-storage-utils';
+import BtnIcon from './BtnIcon';
 import PageRouter from './PageRouter';
 
 
@@ -21,7 +22,7 @@ const App = () => {
     })
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (initialized) {
       // ovo radimo samo ako je aplikacija vec inicijalizovan u protivnom bi se desilo da obrisemo favorites pre nego sto ih procitamo
       storeFaveorites(favorites); // cuva na jard disku favorites nakon svake promene
@@ -80,21 +81,18 @@ const App = () => {
     <div>
 
       <header>
-        <button type="button" onClick={handleClikckHome}>HOME</button>
-        <button type="button" onClick={handleClikckFavorites}>FAVORITES</button>
-        <button type="button" onClick={(e) => { _addToFavorites(2643743) }}>London</button>
-        <button type="button" onClick={(e) => { _addToFavorites(2988507) }}>Paris</button>
-        <button type="button" onClick={(e) => { _addToFavorites(4887398) }}>Chicago</button>
-
-        <input
-          type="text"
-          placeholder="Search"
-          name="search"
-          value={formState.search}
-          onChange={handleChange}
-        />
-
-        <button type="button" onClick={handleClikckSearch}>SEARCH</button>
+        <BtnIcon fa="fa fa-home" title="Home" handleClick={handleClikckHome} />
+        <BtnIcon fa="fa fa-star-o" title="Favorites" handleClick={handleClikckFavorites} />
+        <div className="search-field">
+          <input
+            type="text"
+            placeholder="Search"
+            name="search"
+            value={formState.search}
+            onChange={handleChange}
+          />
+        </div>
+        <BtnIcon fa="fa fa-search" title="Search" handleClick={handleClikckSearch} />
       </header>
 
       <PageRouter q={q} />

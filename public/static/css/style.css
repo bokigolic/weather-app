@@ -6,17 +6,67 @@
 html {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
+  color: white;
 }
 
 body {
   margin: 0px;
   padding: 0px;
+  background-color: gray;
+  background-color: #506094;
 }
 
+
 header {
-  background-color: rgb(194, 205, 226);
-  padding: 10px;
+  height: 48px;
+  line-height: 48px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.2);
+  font-size: 1.4rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
 }
+
+.btn-icon {
+  cursor: pointer;
+}
+
+header .btn-icon {
+  width: 60px;
+  height: 48px;
+  text-align: center;
+}
+header .btn-icon:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+header .search-field {
+  flex: 1;
+}
+header .search-field input {
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  border-color: transparent;
+  border-width: 0px;
+  padding: 5px 10px;
+  color: white;
+  font-size: 1.4rem;
+}
+header .search-field input:focus {
+  border-color: transparent;
+  border-width: 0px;
+  box-shadow: none;
+  outline: none;
+  background-color: rgba(255,255,255,0.15);
+}
+
+
+
 
 .list {
   display: flex;
@@ -93,3 +143,5 @@ header {
   width: 0px;
   right: 800px;
 }
+
+

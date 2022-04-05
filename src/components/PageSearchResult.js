@@ -68,6 +68,10 @@ const PageSearchResult = (props) => {
   return (
     <div className="page-search">
 
+      <button type="button" onClick={(e) => { _addToFavorites(2643743) }}>London</button>
+      <button type="button" onClick={(e) => { _addToFavorites(2988507) }}>Paris</button>
+      <button type="button" onClick={(e) => { _addToFavorites(4887398) }}>Chicago</button>
+
       <h2>Search results</h2>
 
       {jsxZeroResult}
