@@ -54,10 +54,9 @@ const City = (props) => {
   return (
     <div className="favorite-place">FAVORITE PLACE ID: {id}
 
-      <h3>Today</h3>
       {jsxToday}
 
-      <h3>5-Day forecast</h3>
+      <h3>Daily forecast</h3>
       <div className="list">
         {jsxKartice}
       </div>

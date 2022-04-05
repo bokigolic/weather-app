@@ -1,3 +1,5 @@
+import WeatherImageSmart from "./WeatherImageSmart";
+
 const ForecastToday = (props) => {
 
   const city = props.city;
@@ -9,7 +11,9 @@ const ForecastToday = (props) => {
         <h2>{city.name}</h2>
       </abbr>
       <div className="icon-group">
-        <div>icon: {item.weather[0].main}</div>
+        <div className="weather-img">
+          <WeatherImageSmart x={item.weather[0].main} />
+        </div>
         <div className="xl">{item.temp.day}&deg;</div>
         <div className="c">c</div>
       </div>
