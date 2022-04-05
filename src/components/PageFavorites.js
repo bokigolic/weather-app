@@ -22,7 +22,7 @@ const PageFavorites = (props) => {
   });
 
   return (
-    <div className="page-favorites">
+    <div className="page page-favorites">
 
       <h2>Favorite places</h2>
       {jsxFavorites}

@@ -66,7 +66,7 @@ const PageSearchResult = (props) => {
 
 
   return (
-    <div className="page-search">
+    <div className="page page-search">
 
       <button type="button" onClick={(e) => { _addToFavorites(2643743) }}>London</button>
       <button type="button" onClick={(e) => { _addToFavorites(2988507) }}>Paris</button>

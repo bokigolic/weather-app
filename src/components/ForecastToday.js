@@ -4,13 +4,24 @@ const ForecastToday = (props) => {
   const item = props.item;
 
   return (
-    <div className="forecast-today">
-      <div>ID: {city.id}</div>
-      <div>Name: {city.name}</div>
-      <div>icon: {item.weather[0].main}</div>
-      <div>description: {item.weather[0].description}</div>
-      <div>Temperature: {item.temp.day}</div>
-      <div>Wind speed: {item.speed}</div>
+    <div className="forecast-today forecast-big">
+      <abbr title={'ID ' + city.id}>
+        <h2>{city.name}</h2>
+      </abbr>
+      <div className="icon-group">
+        <div>icon: {item.weather[0].main}</div>
+        <div className="xl">{item.temp.day}&deg;</div>
+        <div className="c">c</div>
+      </div>
+      <h3>{item.weather[0].main}</h3>
+      <div className="description">description: {item.weather[0].description}</div>
+      <div className="small-data">
+        <div>Wind {item.speed} km/h</div>
+        <div>Wind {item.speed} km/h</div>
+        <div>Wind {item.speed} km/h</div>
+        <div>Wind {item.speed} km/h</div>
+        <div>Wind {item.speed} km/h</div>
+      </div>
     </div>
   );
 };
